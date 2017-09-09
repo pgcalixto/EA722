@@ -79,11 +79,22 @@ display(eRegADelta);
 display(eRegF);
 display(eRegFDelta);
 
-% item f
-stepGa = step(Ga);
-stepGaDelta = step(GaDelta);
-stepGf = step(Gf);
-stepGfDelta = step(GfDelta);
+% ITEM f
+[stepGa, tA] = step(Ga, 1.2);
+[stepGaDelta, tADelta] = step(GaDelta, 1.2);
+[stepGf, tF] = step(Gf, 1.2);
+[stepGfDelta, tFDelta] = step(GfDelta, 1.2);
+
+degrauA = ones(length(stepGa), 1);
+degrauF = ones(length(stepGf), 1);
+
+figure, plot(tA, degrauA, tA, stepGa, tADelta, stepGaDelta);
+title('Malha aberta');
+legend('degrau', 'k1', 'k1*', 'Location', 'northwest');
+
+figure, plot(tF, degrauF, tF, stepGf, tFDelta, stepGfDelta);
+title('Malha fechada');
+legend('degrau', 'k1', 'k1*', 'Location', 'southeast');
 
 % QUESTAO 4
 kpfA = 1 / Gps0;

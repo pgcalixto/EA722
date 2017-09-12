@@ -97,17 +97,23 @@ title('Malha fechada');
 legend('degrau', 'k1', 'k1*', 'Location', 'southeast');
 
 % QUESTAO 4
+% calculo do novo kpf para erro de regime nulo
 kpfA = 1 / Gps0;
-GaZeroErr = kpfA * Gps;
-EaZeroErr = (1 - GaZeroErr);
-eRegAZeroErr = dcgain(EaZeroErr);
+Ga = kpfA * Gps;
 
-display(eRegAZeroErr);
+% calculo do novo erro de regime
+Ea = (1 - Ga);
+eRegA = dcgain(Ea);
+
+display(eRegA);
 
 % QUESTAO 5
+% calculo do novo kpf em funcao de kp, para erro de regime nulo
 kpfF = (1 + kp * Gps0) / (kp * Gps0);
-GfZeroErr = kpfF * feedback(Gps * kp, 1);
-EfZeroErr = (1 - GfZeroErr);
-eRegFZeroErr = dcgain(EfZeroErr);
+Gf = kpfF * feedback(Gps * kp, 1);
 
-display(eRegFZeroErr);
+% calculo do novo erro de regime
+Ef = (1 - Gf);
+eRegF = dcgain(Ef);
+
+display(eRegF);

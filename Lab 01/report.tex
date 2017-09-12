@@ -58,16 +58,21 @@
 
 \pagestyle{plain}
 
+\graphicspath{{./Imagens/}}
+
 \begin{document}
 
 \begin{center}
-\textbf{Experiência 1}\\ \hspace{5pt}Prof. Marconi Kolm Madrid\\EA772 - 2017/2
+\textbf{Experiência 1} \\
+\hspace{5pt}
+Prof. Marconi Kolm Madrid \\
+EA722 - 2017/2
 \end{center}
 
 \begin{center}
-Danilo Pereira Titato - RA 122541\\
-Giovani Granzotto Oliani - RA 146253\\
-Pedro Gabriel Calixto Mendonça - RA 118363\\
+Danilo Pereira Titato - RA 122541 \\
+Giovani Granzotto Oliani - RA 146253 \\
+Pedro Gabriel Calixto Mendonça - RA 118363 \\
 \end{center}
 
 1. Problema do servo
@@ -85,8 +90,8 @@ Pedro Gabriel Calixto Mendonça - RA 118363\\
 \begin{equation}
     \label{eq:Gps}
     G^\prime_{p_s} = \frac{X_{1}\left( s \right)}{F_a\left( s \right)} =
-         \frac{k_{hw}}{m_1s^2 + \left( c_1 k_{hw} k_v \right) s + k_1},
-         C.Q.D.
+        \frac{k_{hw}}{m_1s^2 + \left( c_1 k_{hw} k_v \right) s + k_1},
+        C.Q.D.
 \end{equation}
 
 2. Problema da regulação
@@ -100,34 +105,31 @@ Pedro Gabriel Calixto Mendonça - RA 118363\\
         {m_1s^2 + c_1s + k_1} \right) = F_p \left( s \right) \cdot
         \frac{1}{m_1s^2 + c_1s + k_1} \\
     X_{1} \left( s \right) \cdot \left[ m_1s^2 + \left( c_1 k_{hw} k_v \right) s
-        + k_1 \right] = F_p\left( s \right)
-\end{gather*}
-\begin{equation}
-    \label{eq:Gpr}
+        + k_1 \right] = F_p\left( s \right) \\
     G^\prime_{p_r} = \frac{X_{1}\left( s \right)}{F_p\left( s \right)} =
-         \frac{1}{m_1s^2 + \left( c_1 k_{hw} k_v \right) s + k_1}, C.Q.D.
-\end{equation}
+        \frac{1}{m_1s^2 + \left( c_1 k_{hw} k_v \right) s + k_1}, C.Q.D.
+\end{gather*}
 
 Substituindo $k_1$ por $k_1^\ast$, como deve ser feito para a simulação de
 perturbação:
 
 \begin{gather*}
     G^\prime_{p_r^\ast} =
-         \frac{1}{m_1s^2 + \left( c_1 k_{hw} k_v \right) s + k_1^\ast} =
-         \frac{1}{m_1s^2 + \left( c_1 k_{hw} k_v \right) s +
-         \left( k_1 + \Delta k_1 \right)}.
+        \frac{1}{m_1s^2 + \left( c_1 k_{hw} k_v \right) s + k_1^\ast} =
+        \frac{1}{m_1s^2 + \left( c_1 k_{hw} k_v \right) s +
+        \left( k_1 + \Delta k_1 \right)}.
 \end{gather*}
-
-\newpage
 
 3. (a) Os valores de ganho de baixa frequência calculados para o $G^\prime_{p_s}$ são:
 
 \begin{gather*}
     G^\prime_{p_s} \left( 0 \right) = \frac{14372}{2.778 \cdot s^2 + 76.6 \cdot
-      s + 338.6} \approx 43.5086 \\ \\
+        s + 338.6} \approx 43.5086 \\ \\
     G^\prime_{p_s^\ast} \left( 0 \right) = \frac{14372}{2.778 \cdot s^2 + 76.6
-      \cdot s + 700} \approx 21.0457
+        \cdot s + 700} \approx 21.0457
 \end{gather*}
+
+\pagebreak
 
 O \textit{script} desenvolvido em Matlab para gerar a função de transferência e
 obter os valores de ganho de baixa frequência foi:
@@ -187,7 +189,9 @@ Gps0Delta =
    21.0457
 \end{lstlisting}
 
-Como pode-se ver, os resultados são exatamente iguais aos calculados. \\
+Como pode-se ver, os resultados são exatamente iguais aos calculados.
+
+\pagebreak
 
 (b) Os valores de ganho de baixa frequência calculados para o $G^\prime_{p_r}$
 são:
@@ -196,7 +200,7 @@ são:
     G^\prime_{p_r} \left( 0 \right) = \frac{1}{2.778 \cdot s^2 + 76.6 \cdot s +
         338.6} \approx 0.00295334 \\ \\
     G^\prime_{p_r^\ast} \left( 0 \right) = \frac{1}{2.778 \cdot s^2 + 76.6 \cdot
-      s + 700} \approx 0.00142857
+        s + 700} \approx 0.00142857
 \end{gather*}
 
 O \textit{script} desenvolvido em Matlab para obter os valores de ganho de baixa
@@ -250,7 +254,6 @@ Como pode-se ver, os resultados são exatamente iguais aos calculados. \\
 display(Gps0Delta - Gps0);
 display(Gpr0Delta - Gpr0);
 \end{lstlisting}
-
 \begin{lstlisting}
   -22.4629
    -0.0015
@@ -275,7 +278,6 @@ display(tf(GaDelta));
 display(tf(Gf));
 display(tf(GfDelta));
 \end{lstlisting}
-
 \begin{lstlisting}
 ans =
             14732
@@ -403,23 +405,253 @@ Os gráficos gerados são:
 \includegraphics{exp01e03f-aberta}
 \centering
 \end{figure}
-
 \begin{figure}[H]
 \includegraphics{exp01e03f-fechada}
 \centering
 \end{figure}
 
-4. Para que o erro de regime de malha aberta seja mínimo (nulo), usando a
-equações~\ref{eq:Gps} e~\ref{eq:erro-de-reg}:
+\pagebreak
+
+4. A função de transferência $G_a\left(s\right)$ para a malha aberta, no
+problema do servo, é:
 
 \begin{gather*}
-    \lim_{s\to0} 1 - G_a\left(s\right) = 0 \implies \\
-    \lim_{s\to0} 1 - G_{pf}\left(s\right) \cdot
-        G^\prime_{p_s}\left(s\right) =
-        \lim_{s\to0} 1 - k_{pf} \cdot
-        \frac{k_{hw}}{m_1s^2 + \left( c_1 k_{hw} k_v \right) s + k_1} =
-        1 - k_{pf} \cdot \frac{k_{hw}}{k_1} = 0 \implies \\
-    k_{pf} = \frac{k_1}{k_{hw}}
+    G_a\left(s\right) := \frac{X_1}{X_{1r}} \\
+    X_1 = G^\prime_{p_s} \cdot {G_{pf}}_a \cdot X_{1r}
 \end{gather*}
+\begin{equation}
+    \label{eq:transf-aberta}
+    G_a\left(s\right) = {G_{pf}}_a \cdot G^\prime_{p_s}
+\end{equation}
+
+% O valor de $G^\prime_{p_s}\left(s\right)$ para $s$ tendendo a $0$, usando a
+% equação \ref{eq:Gps}, é:
+% 
+% \begin{gather*}
+%     \lim_{s\to0} {G^\prime_p}_s\left(s\right) = {G^\prime_p}_s\left(0\right) =
+%         \frac{k_{hw}}{m_10^2 + \left(c_1 k_{hw} k_v\right)0 + k_1} =
+%         \frac{k_{hw}}{k_1}
+% \end{gather*}
+% \begin{equation}
+%     \label{eq:Gps-baixa-freq}
+%     \lim_{s\to0} {G^\prime_p}_s\left(s\right) = {G^\prime_p}_s\left(0\right) =
+%         \frac{k_{hw}}{k_1}
+% \end{equation}
+
+Para que o erro de regime de malha aberta seja mínimo (nulo), usando a
+equações \ref{eq:Gps}, \ref{eq:erro-de-reg} e \ref{eq:transf-aberta}:
+\begin{gather*}
+    \lim_{s\to0} 1 - G_a\left(s\right) = 0 \implies \\
+    \lim_{s\to0} 1 - G_{{pf}_a}\left(s\right) \cdot
+        {G^\prime_p}_s\left(s\right) =
+        1 - k_{pf_a} \cdot {G^\prime_p}_s\left(0\right) = 0 \implies \\
+    k_{{pf}_a} = \frac{1}{{G^\prime_p}_s\left(0\right)} \\
+    k_{{pf}_a} = \frac{1}{43.5086} \approx 0.0230
+\end{gather*}
+
+O novo valor de ${k_{pf}}_a$ foi implementado no \textit{script} desenvolvido no
+item 3:
+
+\begin{lstlisting}
+% calculo do novo kpf para erro de regime nulo
+kpfA = 1 / Gps0;
+Ga = kpfA * Gps;
+
+% calculo do novo erro de regime
+Ea = (1 - GaZeroErr);
+eRegA = dcgain(EaZeroErr);
+
+display(eRegA);
+\end{lstlisting}
+\begin{lstlisting}
+eRegA =
+     0
+\end{lstlisting}
+
+5. A função de transferência $G_f\left(s\right)$ para a malha fechada, no
+problema do servo, é:
+
+\begin{gather*}
+    G_f\left(s\right) := \frac{X_1}{X_{1r}} \\
+    X_1 = {G^\prime_p}_s\left(s\right) \cdot k_p \cdot
+        \left({G_{pf}}_f\left(s\right) \cdot X_{1r} - X_1\right) \\
+    X_1 \cdot \left(1 + k_p {G^\prime_p}_s\left(s\right) \right) =
+        X_{1r} \cdot \left( k_p {G^\prime_p}_s\left(s\right)
+        {G_{pf}}_f\left(s\right) \right) \\
+    G_f\left(s\right) = \frac{X_1}{X_{1r}} =
+        \frac{k_p \cdot {G_{pf}}_f\left(s\right) \cdot
+        {G^\prime_p}_s\left(s\right)}{1 + k_p \cdot
+        {G^\prime_p}_s\left(s\right)}
+\end{gather*}
+\begin{equation}
+    \label{eq:transf-fechada}
+    G_f\left(s\right) =
+        \frac{k_p \cdot k_{{pf}_f} \cdot {G^\prime_p}_s\left(s\right)}
+        {1 + k_p \cdot {G^\prime_p}_s\left(s\right)}
+\end{equation}
+
+Para que o erro de regime de malha fechada seja mínimo (nulo), usando a
+equações \ref{eq:Gps}, \ref{eq:erro-de-reg} e \ref{eq:transf-fechada}:
+
+\begin{gather*}
+    \lim_{s\to0} 1 - G_f\left(s\right) = 0 \implies \\
+    \lim_{s\to0} 1 - \frac{k_p \cdot k_{{pf}_f} \cdot
+        {G^\prime_p}_s\left(s\right)}{1 + k_p \cdot
+        {G^\prime_p}_s\left(s\right)} = 1 - \frac{k_p \cdot k_{{pf}_f} \cdot
+        {G^\prime_p}_s\left(0\right)}{1 + k_p \cdot
+        {G^\prime_p}_s\left(0\right)} = 0 \implies \\
+    k_p \cdot k_{{pf}_f} \cdot {G^\prime_p}_s\left(0\right) =
+        1 + k_p \cdot {G^\prime_p}_s\left(0\right) \implies
+        k_{{pf}_f} = \frac{1 + k_p \cdot {G^\prime_p}_s\left(0\right)}
+        {k_p \cdot {G^\prime_p}_s\left(0\right)} \\
+    k_{{pf}_f} = \frac{1 + 43.5086 \cdot k_p}
+        {43.5086 \cdot k_p}
+\end{gather*}
+
+O novo valor de ${k_{pf}}_f$ foi implementado no \textit{script} desenvolvido no
+item 3:
+
+\begin{lstlisting}
+% calculo do novo kpf em funcao de kp, para erro de regime nulo
+kpfF = (1 + kp * Gps0) / (kp * Gps0);
+Gf = kpfF * feedback(Gps * kp, 1);
+
+% calculo do novo erro de regime
+Ef = (1 - Gf);
+eRegF = dcgain(Ef);
+
+display(eRegF);
+\end{lstlisting}
+\begin{lstlisting}
+eRegF =
+   2.1588e-16
+\end{lstlisting}
+
+O novo erro de regime é desprezível para a ordem de grandeza usada, se
+aproximando de zero. \\
+
+6. Segundo as equações \ref{eq:transf-aberta} e \ref{eq:transf-fechada}:
+
+\begin{gather*}
+    G_a\left(s\right) = {G_{pf}}_a \cdot {G^\prime_p}_s \\
+    G_a\left(s\right) = {k_{pf}}_a \cdot \frac{k_{hw}}
+        {m_1s^2 + \left(c_1 k_{hw} k_v\right) s + k_1} =
+        \frac{{k_{pf}}_a \cdot k_{hw}}
+        {m_1s^2 + \left(c_1 k_{hw} k_v\right) s + k_1}
+\end{gather*}
+
+\begin{gather*}
+    G_f\left(s\right) =
+        \frac{k_p \cdot k_{{pf}_f} \cdot {G^\prime_p}_s\left(s\right)}
+        {1 + k_p \cdot {G^\prime_p}_s\left(s\right)} \\
+    G_f\left(s\right) =
+        \frac{k_p \cdot k_{{pf}_f} \cdot \frac{k_{hw}}
+        {m_1s^2 + \left(c_1 k_{hw} k_v\right) s + k_1}}
+        {1 + k_p \cdot \frac{k_{hw}}
+        {m_1s^2 + \left(c_1 k_{hw} k_v\right) s + k_1}} \\
+    G_f\left(s\right) =
+        \frac{k_{{pf}_f} \cdot k_p \cdot k_{hw}}
+        {m_1s^2 + \left(c_1 k_{hw} k_v\right) s +
+        \left(k_1 + k_p \cdot k_{hw}\right)}
+\end{gather*}
+
+Logo, os modelos de função de transferência para malha aberta e fechada são:
+
+\begin{figure}[H]
+\includegraphics[scale=0.9]{exp01e06-aberta}
+\centering
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[scale=0.9]{exp01e06-fechada}
+\centering
+\end{figure}
+
+7.
+\begin{figure}[H]
+\includegraphics[scale=0.8]{exp01e07}
+\centering
+\end{figure}
+
+\pagebreak
+
+9.
+\begin{figure}[H]
+\includegraphics{exp01e09-aberta}
+\centering
+\end{figure}
+\begin{figure}[H]
+\includegraphics{exp01e09-fechada}
+\centering
+\end{figure}
+
+\pagebreak
+
+10.
+\begin{figure}[H]
+\includegraphics{exp01e10}
+\centering
+\end{figure}
+
+11.
+\begin{figure}[H]
+\includegraphics{exp01e11}
+\centering
+\end{figure}
+
+À medida que aumenta-se o $k_p$, há um \textit{overshoot} maior e um tempo de
+subida menor. A estabilização se dá nos mesmos instantes para os diferentes
+valores de $k_p$.
+
+12. (a) Os gráficos obtidos através do aumento de $k_1$ para $700 N/m$ são:
+
+\begin{figure}[H]
+\includegraphics{exp01e12-aberta}
+\centering
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics{exp01e12-fechada}
+\centering
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics{exp01e12-fechada-zoom}
+\centering
+\end{figure}
+
+Na resposta em malha aberta, pode-se perceber que o aumento da constante de
+mola do sistema tanto causou uma resposta mais amortecida como um tempo de
+estabilização menor.
+Sem realimentação para controlar, o aumento da constante de mola causa uma força
+maior na resistência do movimento do bloco, refletido no gráfico como esperado
+pela teoria.
+Houve, também, um aumento no erro de regime, já que o ganho de pré-filtro
+$k_{pf}$ não está ajustado para anular o erro de regime da mola de maior dureza,
+e sim da mola de dureza média.
+
+A resposta em malha fechada possui as mesmas diferenças da resposta em malha
+aberta: resposta mais amortecida e tempo de estabilização menor. Houve também um
+\textit{overshoot} maior do que a resposta em malha fechada com constante de
+mola menor. \\
+
+(b) Quanto maior o valor de $k_p$, maior o \textit{overshoot} e mais o sistema
+oscila, demorando mais para estabilizar também. Juntamente com isso, observa-se
+o aumento do valor de regime à medida que aumenta-se o $k_p$. \\
+
+(c) O erro de regime no caso do sistema em malha aberta é esperado de acontecer
+quando o $k_{pf}$ não está regulado para anulá-lo, como foi o caso para
+$k_1 = 700 N/m$.
+
+Já no caso do sistema de malha fechada, acontece o erro de regime, porém ele é
+possível de ser diminuído de acordo com o ganho $k_p$ usado no controlador
+proporcional. Quando maior o $k_p$, maior o valor de regime, desse modo sendo
+possível regular o erro. No caso de $k_p = 0.24$, observa-se uma minimização
+dele.
+
+Em suma, os erros são presentes quando o $k_{pf}$ não está regulado para a
+anulação do mesmo, porém o sistema em malha fechada consegue minimizá-lo graças
+à sua realimentação e controle através da regulação do ganho do controlador
+proporcional.
 
 \end{document}

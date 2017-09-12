@@ -117,3 +117,61 @@ Ef = (1 - Gf);
 eRegF = dcgain(Ef);
 
 display(eRegF);
+
+% QUESTAO 12
+% malha aberta
+[tout, ~, yout] = sim('exp01e06_aberta');
+figure;
+plot(tout, yout);
+hold on;
+grid on;
+
+k1 = 700;
+[tout, ~, yout] = sim('exp01e06_aberta');
+plot(tout, yout(:,2));
+
+title('Resposta em malha aberta para diferentes k_1');
+legend('Entrada degrau', 'k_1 = 338.6 N/m', 'k_1 = 700 N/m');
+hold off;
+
+% malha fechada, k1 constante (700)
+k1 = 700;
+
+kpArray = [0.03 0.06 0.12 0.24 0.48 0.96];
+
+kp = kpArray(1);
+[tout, ~, yout] = sim('exp01e06_fechada');
+
+figure;
+plot(tout, yout);
+hold on;
+grid on;
+
+for i = 2:length(kpArray)
+    kp = kpArray(i);
+    [tout, ~, yout] = sim('exp01e06_fechada');
+    plot(tout, yout(:,2));
+end
+
+legend('Entrada degrau', 'k_p = 0.03', 'k_p = 0.06', 'k_p = 0.12', 'k_p = 0.24')
+title('Resposta em malha fechada para k_1 = 700 N/m');
+hold off;
+
+% malha fechada, kp constante (0.24)
+figure;
+kp = 0.24;
+k1 = 338.6;
+Gps = khw / (m1*s^2 + (c1+khw*kv)*s + k1);
+Gps0 = dcgain(Gps);
+kpfF = (1 + kp * Gps0) / (kp * Gps0);
+[tout, ~, yout] = sim('exp01e06_fechada');
+plot(tout, yout);
+hold on;
+
+k1 = 700;
+[tout, ~, yout] = sim('exp01e06_fechada');
+plot(tout, yout(:,2));
+
+grid on;
+legend('Entrada degrau', 'k_1 = 338.6 N/m', 'k_1 = 700 N/m');
+title('Resposta em malha fechada para k_p = 0.24');

@@ -184,4 +184,60 @@ Os gráficos obtidos foram:
     \end{itemize}
 \end{multicols}
 
+\textbf{3.} \textbf{(a)}
+O diagrama de blocos usado para implementar as condições iniciais do controlador
+PD foi:
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{diagrama-pd}
+\end{figure}
+
+Sua resposta temporal para entrada nula e condições iniciais
+$x_1\left(0\right) = 1000$ counts, $\dot{x}_1\left(0\right) = 0$, foi:
+
+\begin{figure}[H]
+\centering
+\includegraphics{exp03e03a-resposta-pd}
+\end{figure}
+
+\textbf{(b)}
+O diagrama de blocos usado para implementar as condições iniciais do controlador
+P\&D foi:
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{diagrama-ped}
+\end{figure}
+
+Sua resposta temporal para entrada nula e condições iniciais
+$x_1\left(0\right) = 1000$ counts, $\dot{x}_1\left(0\right) = 0$, foi:
+
+\begin{figure}[H]
+\centering
+\includegraphics{exp03e03b-resposta-ped}
+\end{figure}
+
+Como visto, a resposta do controlador P\&D teve um tempo de subida
+significativamente menor. A resposta do P\&D oscilou com um \textit{overshoot}
+acentuado e seu regime se deu por volta de entre $200$ e $300ms$, enquanto o
+regime do controlador PD se deu por volta de entre $500$ e $600ms$, com uma
+resposta consideravelmente mais amortecida.
+
+\pagebreak
+
+\textbf{(c)}
+
+\begin{figure}[H]
+\centering
+\includegraphics{exp03e03c-resposta-pd}
+\caption{Resposta do controlador PD à entrada degrau}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics{exp03e03c-resposta-ped}
+\caption{Resposta do controlador P\&D à entrada degrau}
+\end{figure}
+
 \end{document}

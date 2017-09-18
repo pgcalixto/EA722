@@ -84,13 +84,13 @@ Pedro Gabriel Calixto Mendonça - RA 118363 \\
     X_{1} \left( s \right) \cdot \left( 1 + \frac{k_{hw} \cdot k_v \cdot s}
         {m_1s^2 + c_1s + k_1} \right) = F_a\left( s \right) \cdot
         \frac{k_{hw}}{m_1s^2 + c_1s + k_1} \\
-    X_{1} \left( s \right) \cdot \left[ m_1s^2 + \left( c_1 k_{hw} k_v \right) s
-        + k_1 \right] = F_a\left( s \right) \cdot k_{hw}
+    X_{1} \left( s \right) \cdot \left[ m_1s^2 + \left( c_1 + k_{hw} k_v \right)
+        s + k_1 \right] = F_a\left( s \right) \cdot k_{hw}
 \end{gather*}
 \begin{equation}
     \label{eq:Gps}
     G^\prime_{p_s} = \frac{X_{1}\left( s \right)}{F_a\left( s \right)} =
-        \frac{k_{hw}}{m_1s^2 + \left( c_1 k_{hw} k_v \right) s + k_1},
+        \frac{k_{hw}}{m_1s^2 + \left( c_1 + k_{hw} k_v \right) s + k_1},
         C.Q.D.
 \end{equation}
 
@@ -104,10 +104,10 @@ Pedro Gabriel Calixto Mendonça - RA 118363 \\
     X_{1} \left( s \right) \cdot \left( 1 + \frac{k_{hw} \cdot k_v \cdot s}
         {m_1s^2 + c_1s + k_1} \right) = F_p \left( s \right) \cdot
         \frac{1}{m_1s^2 + c_1s + k_1} \\
-    X_{1} \left( s \right) \cdot \left[ m_1s^2 + \left( c_1 k_{hw} k_v \right) s
-        + k_1 \right] = F_p\left( s \right) \\
+    X_{1} \left( s \right) \cdot \left[ m_1s^2 + \left( c_1 + k_{hw} k_v \right)
+        s + k_1 \right] = F_p\left( s \right) \\
     G^\prime_{p_r} = \frac{X_{1}\left( s \right)}{F_p\left( s \right)} =
-        \frac{1}{m_1s^2 + \left( c_1 k_{hw} k_v \right) s + k_1}, C.Q.D.
+        \frac{1}{m_1s^2 + \left( c_1 + k_{hw} k_v \right) s + k_1}, C.Q.D.
 \end{gather*}
 
 Substituindo $k_1$ por $k_1^\ast$, como deve ser feito para a simulação de
@@ -115,12 +115,13 @@ perturbação:
 
 \begin{gather*}
     G^\prime_{p_r^\ast} =
-        \frac{1}{m_1s^2 + \left( c_1 k_{hw} k_v \right) s + k_1^\ast} =
-        \frac{1}{m_1s^2 + \left( c_1 k_{hw} k_v \right) s +
+        \frac{1}{m_1s^2 + \left( c_1 + k_{hw} k_v \right) s + k_1^\ast} =
+        \frac{1}{m_1s^2 + \left( c_1 + k_{hw} k_v \right) s +
         \left( k_1 + \Delta k_1 \right)}.
 \end{gather*}
 
-3. (a) Os valores de ganho de baixa frequência calculados para o $G^\prime_{p_s}$ são:
+3. (a) Os valores de ganho de baixa frequência calculados para o
+$G^\prime_{p_s}$ são:
 
 \begin{gather*}
     G^\prime_{p_s} \left( 0 \right) = \frac{14372}{2.778 \cdot s^2 + 76.6 \cdot
@@ -535,9 +536,9 @@ aproximando de zero. \\
 \begin{gather*}
     G_a\left(s\right) = {G_{pf}}_a \cdot {G^\prime_p}_s \\
     G_a\left(s\right) = {k_{pf}}_a \cdot \frac{k_{hw}}
-        {m_1s^2 + \left(c_1 k_{hw} k_v\right) s + k_1} =
+        {m_1s^2 + \left(c_1 + k_{hw} k_v\right) s + k_1} =
         \frac{{k_{pf}}_a \cdot k_{hw}}
-        {m_1s^2 + \left(c_1 k_{hw} k_v\right) s + k_1}
+        {m_1s^2 + \left(c_1 + k_{hw} k_v\right) s + k_1}
 \end{gather*}
 
 \begin{gather*}
@@ -546,12 +547,12 @@ aproximando de zero. \\
         {1 + k_p \cdot {G^\prime_p}_s\left(s\right)} \\
     G_f\left(s\right) =
         \frac{k_p \cdot k_{{pf}_f} \cdot \frac{k_{hw}}
-        {m_1s^2 + \left(c_1 k_{hw} k_v\right) s + k_1}}
+        {m_1s^2 + \left(c_1 + k_{hw} k_v\right) s + k_1}}
         {1 + k_p \cdot \frac{k_{hw}}
-        {m_1s^2 + \left(c_1 k_{hw} k_v\right) s + k_1}} \\
+        {m_1s^2 + \left(c_1 + k_{hw} k_v\right) s + k_1}} \\
     G_f\left(s\right) =
         \frac{k_{{pf}_f} \cdot k_p \cdot k_{hw}}
-        {m_1s^2 + \left(c_1 k_{hw} k_v\right) s +
+        {m_1s^2 + \left(c_1 + k_{hw} k_v\right) s +
         \left(k_1 + k_p \cdot k_{hw}\right)}
 \end{gather*}
 

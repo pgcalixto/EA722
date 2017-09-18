@@ -12,7 +12,7 @@ Model {
       UnitExpr		      "inherit"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.24"
+    ComputedModelVersion    "1.29"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -49,7 +49,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [472.0, 74.0, 813.0, 473.0]
+      Location		      [77.0, 78.0, 1049.0, 600.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -73,9 +73,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[759.0, 292.0]
+	Extents			[995.0, 419.0]
 	ZoomFactor		[1.0]
-	Offset			[0.0, 0.0]
+	Offset			[84.399999999999977, -7.5458224316437565]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -95,11 +95,11 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABjAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAAKwD///8AAAMdAAABXQAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAAKwD///8AAAQJAAAB3AAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAB5/////wAAAAAAAAAA/////wEAAADa/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAFT/////wAAAAAAAAAA/"
-      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAK//////wAAAAAAAAAA/"
-      "////wEAAALu/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
+      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAL9/////wAAAAAAAAAA/"
+      "////wEAAAMs/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
     }
   }
   HideAutomaticNames	  on
@@ -109,9 +109,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Gabriel"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Sep 12 05:34:44 2017"
-  RTWModifiedTimeStamp	  427095282
-  ModelVersionFormat	  "1.%<AutoIncrement:24>"
+  LastModifiedDate	  "Sat Sep 16 02:19:43 2017"
+  RTWModifiedTimeStamp	  427429164
+  ModelVersionFormat	  "1.%<AutoIncrement:29>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -873,7 +873,7 @@ Model {
       }
       Name		      "Configuration"
       ExtraOptions	      ""
-      CurrentDlgPage	      "Data Import//Export"
+      CurrentDlgPage	      "Solver"
       ConfigPrmDlgPosition    [ 263, 77, 1104, 628 ]
     }
     PropName		    "ConfigurationSets"
@@ -959,6 +959,39 @@ Model {
       PreserveConstantTs      off
     }
     Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ParamMin		      "[]"
+      ParamMax		      "[]"
+      ParamDataTypeStr	      "Inherit: Same as input"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Integrator
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      WrapState		      off
+      WrappedStateUpperValue  "pi"
+      WrappedStateLowerValue  "-pi"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+      IgnoreLimit	      off
+      ZeroCross		      on
+      ContinuousStateAttributes	"''"
+    }
+    Block {
       BlockType		      Outport
       Port		      "1"
       OutMin		      "[]"
@@ -997,7 +1030,7 @@ Model {
   }
   System {
     Name		    "exp03e03_pd"
-    Location		    [472, 74, 1285, 547]
+    Location		    [77, 78, 1126, 678]
     Open		    on
     PortBlocksUseCompactNotation off
     ModelBrowserVisibility  off
@@ -1012,7 +1045,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "7"
+    SIDHighWatermark	    "14"
     Block {
       BlockType		      Constant
       Name		      "Constant"
@@ -1022,11 +1055,65 @@ Model {
       Value		      "0"
     }
     Block {
+      BlockType		      Gain
+      Name		      "Gain1"
+      SID		      "8"
+      Position		      [550, 237, 590, 273]
+      ZOrder		      12
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      Gain		      "k1/m1"
+      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "Gain2"
+      SID		      "9"
+      Position		      [550, 160, 590, 200]
+      ZOrder		      14
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      Gain		      "c1/m1"
+      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "Gain3"
+      SID		      "14"
+      Position		      [320, 74, 370, 116]
+      ZOrder		      16
+      Gain		      "khw/m1"
+      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Integrator
+      Name		      "Integrator"
+      SID		      "10"
+      Ports		      [1, 1]
+      Position		      [675, 80, 705, 110]
+      ZOrder		      10
+      InitialCondition	      "1000"
+    }
+    Block {
+      BlockType		      Integrator
+      Name		      "Integrator1"
+      SID		      "11"
+      Ports		      [1, 1]
+      Position		      [555, 80, 585, 110]
+      ZOrder		      11
+    }
+    Block {
       BlockType		      Reference
       Name		      "PID Controller"
       SID		      "1"
       Ports		      [1, 1]
-      Position		      [265, 80, 295, 110]
+      Position		      [240, 80, 270, 110]
       ZOrder		      -1
       LibraryVersion	      "1.22"
       SourceBlock	      "simulink_need_slupdate/PID Controller"
@@ -1053,27 +1140,38 @@ Model {
       SaturateOnIntegerOverflow	off
     }
     Block {
-      BlockType		      Reference
-      Name		      "Transfer Fcn\n(with initial states)"
-      SID		      "4"
-      Ports		      [1, 1]
-      Position		      [350, 69, 490, 121]
-      ZOrder		      -4
-      LibraryVersion	      "1.59"
-      SourceBlock	      "simulink_extras/Additional\nLinear/Transfer Fcn\n(with initial states)"
-      SourceType	      "Transfer Function with Initial States"
-      SourceProductName	      "Simulink"
-      SourceProductBaseCode   "SL"
-      ContentPreviewEnabled   off
-      N			      "[khw]"
-      D			      "[m1 (c1+khw*kv) k1]"
-      X0		      "0"
+      BlockType		      Sum
+      Name		      "Sum1"
+      SID		      "12"
+      Ports		      [2, 1]
+      Position		      [405, 80, 435, 110]
+      ZOrder		      13
+      ShowName		      off
+      IconShape		      "round"
+      Inputs		      "|+-"
+      InputSameDT	      off
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "Sum2"
+      SID		      "13"
+      Ports		      [2, 1]
+      Position		      [480, 80, 510, 110]
+      ZOrder		      15
+      ShowName		      off
+      IconShape		      "round"
+      Inputs		      "|+-"
+      InputSameDT	      off
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
     }
     Block {
       BlockType		      Outport
       Name		      "Out1"
       SID		      "5"
-      Position		      [565, 88, 595, 102]
+      Position		      [840, 88, 870, 102]
       ZOrder		      -5
       IconDisplay	      "Port number"
     }
@@ -1085,13 +1183,6 @@ Model {
       DstPort		      1
     }
     Line {
-      ZOrder		      5
-      SrcBlock		      "PID Controller"
-      SrcPort		      1
-      DstBlock		      "Transfer Fcn\n(with initial states)"
-      DstPort		      1
-    }
-    Line {
       ZOrder		      10
       SrcBlock		      "Constant"
       SrcPort		      1
@@ -1099,21 +1190,92 @@ Model {
       DstPort		      1
     }
     Line {
-      ZOrder		      14
-      SrcBlock		      "Transfer Fcn\n(with initial states)"
+      ZOrder		      19
+      SrcBlock		      "Sum1"
       SrcPort		      1
-      Points		      [30, 0]
+      DstBlock		      "Sum2"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      20
+      SrcBlock		      "Gain1"
+      SrcPort		      1
+      Points		      [-125, 0]
+      DstBlock		      "Sum1"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      21
+      SrcBlock		      "Gain2"
+      SrcPort		      1
+      Points		      [-50, 0]
+      DstBlock		      "Sum2"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      22
+      SrcBlock		      "Sum2"
+      SrcPort		      1
+      DstBlock		      "Integrator1"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      28
+      SrcBlock		      "Integrator1"
+      SrcPort		      1
+      Points		      [42, 0]
       Branch {
-	ZOrder			16
-	Points			[0, 64; -335, 0]
-	DstBlock		"Sum"
-	DstPort			2
-      }
-      Branch {
-	ZOrder			15
-	DstBlock		"Out1"
+	ZOrder			63
+	DstBlock		"Integrator"
 	DstPort			1
       }
+      Branch {
+	ZOrder			27
+	Points			[0, 85]
+	DstBlock		"Gain2"
+	DstPort			1
+      }
+    }
+    Line {
+      ZOrder		      58
+      SrcBlock		      "Integrator"
+      SrcPort		      1
+      Points		      [29, 0]
+      Branch {
+	ZOrder			64
+	Points			[54, 0]
+	Branch {
+	  ZOrder		  62
+	  Points		  [0, 206; -603, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Branch {
+	  ZOrder		  61
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+      }
+      Branch {
+	ZOrder			60
+	Points			[0, 160]
+	DstBlock		"Gain1"
+	DstPort			1
+      }
+    }
+    Line {
+      ZOrder		      65
+      SrcBlock		      "PID Controller"
+      SrcPort		      1
+      DstBlock		      "Gain3"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      66
+      SrcBlock		      "Gain3"
+      SrcPort		      1
+      DstBlock		      "Sum1"
+      DstPort		      1
     }
   }
 }

@@ -52,6 +52,7 @@ X2R_2 = minreal((X1R_2*N2)/N1);
 
 % Obtencao da resposta ao degrau dos sistemas
 [stepX1R_1, t1_1] = step(X1R_1, 2);
+[stepX2R_1, t2_1] = step(X2R_1, 2);
 
 
 figure, plot(t1_1, stepX1R_1, t2_1, stepX2R_1);

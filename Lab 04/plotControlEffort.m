@@ -1,0 +1,10 @@
+plot(data_q07(:,1), data_q07(:,[3]));
+hold;
+plot(data_q07(:,1), data_q07(:,[4]));
+ylabel ('counts');
+yyaxis right;
+plot(data_q07(:,1), data_q07(:,[5]));
+ylabel ('volts');
+legend('Commanded Pos (counts)', 'Enc 1 Position (counts)', 'Control Effort (volts)');
+grid on;
+xlabel ('tempo');

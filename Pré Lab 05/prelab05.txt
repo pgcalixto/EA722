@@ -1,0 +1,3 @@
+1)
+PD1: Pólos dominantes: s = −0.49884 ± 11.2235j
+PD2: Pólos dominantes: s = −1.6007 ± 11.1483j

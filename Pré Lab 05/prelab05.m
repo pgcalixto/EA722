@@ -51,17 +51,16 @@ X2R_2 = minreal((X1R_2*N2)/N1);
 [p2_2, z2_2] = pzmap(X2R_2);
 
 % Obtencao da resposta ao degrau dos sistemas
-[stepX1R_1, t1_1] = step(X1R_1, 1.2);
-[stepX2R_1, t2_1] = step(X2R_1, 1.2);
+[stepX1R_1, t1_1] = step(X1R_1, 2);
 
 
 figure, plot(t1_1, stepX1R_1, t2_1, stepX2R_1);
 grid on;
 title('PD1');
-legend('x1', 'x2', 'Location', 'northwest');
+legend('x1', 'x2', 'Location', 'northeast');
 
-[stepX1R_2, t1_2] = step(X1R_2, 1.2);
-[stepX2R_2, t2_2] = step(X2R_2, 1.2);
+[stepX1R_2, t1_2] = step(X1R_2, 2);
+[stepX2R_2, t2_2] = step(X2R_2, 2);
 
 figure, plot(t1_2, stepX1R_2, t2_2, stepX2R_2);
 grid on;

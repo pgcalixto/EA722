@@ -66,7 +66,7 @@ legend('x1', 'x2', 'Location', 'northwest');
 figure, plot(t1_2, stepX1R_2, t2_2, stepX2R_2);
 grid on;
 title('PD2');
-legend('x1', 'x2', 'Location', 'northwest');
+legend('x1', 'x2', 'Location', 'northeast');
 
 %%% Exercicio 2 %%%
 % Funcoes de transferencia de malha aberta
@@ -74,15 +74,11 @@ H_1 = (khw*Gc1*N1)/D;
 H_2 = (khw*Gc2*N1)/D;
 figure, bode(H_1, H_2);
 grid on;
+legend('PD1', 'PD2');
 
 % Funcoes de transferencia de malha fechada
 X1F_1 = N1/(D + N1*khw*Gc1);
 X1F_2 = N1/(D + N1*khw*Gc2);
 figure, bode(X1F_1, X1F_2);
 grid on;
-
-
-
-
-
-
+legend('PD1', 'PD2');

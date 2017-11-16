@@ -38,11 +38,11 @@ D = (m1*m2)*s^4 + (c1*m2 + c2*m1)*s^3 + [(m1 + m2)*k + c1*c2]*s^2 + (c1 + c2)*k*
 
 %%% Exercicio 1 %%%
 % Calculo de funcao de transferencia
-X1R_1 = (khw*Gc1*N1)/(D + khw*Gc1*N1);
-X2R_1 = (X1R_1*N2)/N1;
+X1R_1 = minreal((khw*Gc1*N1)/(D + khw*Gc1*N1));
+X2R_1 = minreal((X1R_1*N2)/N1);
 
-X1R_2 = (khw*Gc2*N1)/(D + khw*Gc2*N1);
-X2R_2 = (X1R_2*N2)/N1;
+X1R_2 = minreal((khw*Gc2*N1)/(D + khw*Gc2*N1));
+X2R_2 = minreal((X1R_2*N2)/N1);
 
 % Calculo de polos e zeros das funcoes de transferencia
 [p1_1, z1_1] = pzmap(X1R_1);

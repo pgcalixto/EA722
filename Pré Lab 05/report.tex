@@ -263,7 +263,16 @@ $X_2\left(s\right)$, para os controladores $PD_1$ e $PD_2$, são:
 \caption{Respostas ao degrau usando $PD_2$}
 \end{figure}
 
-TODO explicar esses gráficos, né
+Na resposta temporal, vemos que tanto para PD1 como para PD2, o carro oscila
+muito. Para o carro 1, porém, percebe-se que há mais oscilação na resposta com
+PD2 do que na com PD1. Isso pode ser explicado pela localização dos pólos nas
+duas funções de transferência. Com PD1, os pólos dominantes (aqueles conjugados
+mais próximos ao eixo imaginário) ficam muito próximos dos zeros, o que anula em
+parte o seu forte efeito oscilatório.
+
+Já com PD2, os pólos dominantes ficam um pouco mais à esquerda e distantes dos
+zeros. Por conta disso, o seu efeito oscilatório é menos atenuado pelos pólos,
+o que resulta em uma resposta temporal com mais oscilação. \\
 
 \textbf{2.}
 
@@ -292,6 +301,8 @@ $\frac{X_1\left(s\right)}{F_d\left(s\right)}$ é:
         \frac{N_1\left(s\right)}{D\left(s\right)} \cdot G_c\left(s\right)}
 \end{gather*}
 
+\pagebreak
+
 Diagrama de Bode da função de transferência de malha fechada
 $\frac{X_1\left(s\right)}{F_d\left(s\right)}$:
 
@@ -302,8 +313,12 @@ $\frac{X_1\left(s\right)}{F_d\left(s\right)}$:
 \end{figure}
 
 \textbf{3.}
+Para altas frequências, PD1 e PD2 se igualam assintoticamente, tanto para a
+malha aberta quanto para a malha fechada. 
 
-TODO: Analise as características de atenuação de distúrbios exibidas por cada um
-dos controladores PD através dos diagramas de Bode.
+Já para as altas frequências, PD1 tem maior magnitude que PD2 para a malha
+aberta, enquanto para a malha fechada PD1 possui menor magnitude que PD2. Entre
+a malha aberta e a malha fechada, PD1 tem sua magnitude reduzida a ponto de ser
+menor que PD2, mostrando, então, que PD1 atenua mais os distúrbios do que PD2. 
 
 \end{document}

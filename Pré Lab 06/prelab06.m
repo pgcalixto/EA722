@@ -29,13 +29,13 @@ D = [(m1*m2) (c1*m2 + c2*m1) ((m1+m2)*k + c1*c2) ((c1+c2)*k) 0];
 % Implemente as funcoes de transferencia da planta utilizando os valores
 % numericos para definir X1(s)/R*(s)
 
-% G1 = feedback(khw * N1/D, kv * s);
+G1 = khw * tf(N1, D);
 
 %% Realimentacao - 2
 % Determine atraves do lugar das raizes (root locus) o valor de kv que
 % forneca o maximo amortecimento
 
-rlocus(s * khw * tf(N1, D));
+rlocus(s * G1);
 grid on;
 
 %% Realimentacao - 3

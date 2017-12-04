@@ -112,7 +112,7 @@ D = [(m1*m2) (c1*m2 + c2*m1) ((m1+m2)*k + c1*c2) ((c1+c2)*k) 0];
 % Implemente as funcoes de transferencia da planta utilizando os valores
 % numericos para definir X1(s)/R*(s)
 
-G1 = feedback(khw * N1/D, kv * s);
+G1 = khw * tf(N1, D);
 \end{lstlisting}
 
 ~~~~\textbf{2.}
@@ -122,7 +122,7 @@ G1 = feedback(khw * N1/D, kv * s);
 % Determine atraves do lugar das raizes (root locus) o valor de kv que
 % forneca o maximo amortecimento
 
-rlocus(s * khw * tf(N1, D));
+rlocus(s * G1);
 grid on;
 \end{lstlisting}
 
